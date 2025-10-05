@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: alten-shop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alten_shop
+    username: postgres
+    password: super
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  jackson:
+    time-zone: UTC
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration: 86400000 # 24 hours
+
+logging:
+  level:
+    com.alten: DEBUG
+    org.springframework.security: DEBUG
